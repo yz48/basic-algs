@@ -1,1 +1,1 @@
-# several_sort_algs
+# basic algs
