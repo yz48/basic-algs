@@ -66,7 +66,9 @@ def selection_sort(ary):
 # merge sort
 
 
-# quick sort
+# quick sort 在最坏的情况下，待排序的序列为正序或者逆序 O(n^2) 每次划分只得到一个比上一次划分少一个记录的子序列, 另一个为空
+# 最好情况，每次分一半 O(nlgn)
+#https://en.wikipedia.org/wiki/Master_theorem
 def quick_sort(ary):
     return qsort(ary,0,len(ary)-1)
 
@@ -124,7 +126,11 @@ def merge2(xs, ys):
     result.extend(ys[j:])
     return result
 
-# merge sort top down
+# merge sort top down T[n]  =  2T[n/2] + O(n) 因为不管元素在什么情况下都要做这些步骤，所以花销的时间是不变的，
+# 所以该算法的最优时间复杂度和最差时间复杂度及平均时间复杂度都是一样的为：O( nlogn )
+
+# 归并的空间复杂度就是那个临时的数组和递归时压入栈的数据占用的空间：n + logn；所以空间复杂度为: O(n)
+
 def merge_sort2(ary):
     if len(ary) <= 1 : return ary
     num = int(len(ary)/2)
